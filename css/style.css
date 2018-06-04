@@ -13,6 +13,7 @@ video {
   display: block;
   margin: 0 auto;
   text-align: center;
+  object-fit: contain;
 }
 
 .wrapper {
