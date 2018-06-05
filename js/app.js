@@ -1,18 +1,9 @@
 //--------------VIDEO PLAYER CONTROLS--------------
-
-// You can use either a string for the player ID (i.e., `player`),
-// or `document.querySelector()` for any selector
-var player = new MediaElementPlayer('player', {
-  pluginPath: "/plugins/mediaelement/",
-// When using `MediaElementPlayer`, an `instance` argument
-// is available in the `success` callback
-  success: function(mediaElement, originalNode, instance) {
-    // do things
-    alwaysShowControls: "true",
-    features: [playpause, current, progress, duration, tracks, volume, fullscreen],
-  }
+$('video').mediaelementplayer({
+  alwaysShowControls: true,
+  features: ['playpause', 'current', 'progress', 'duration', 'tracks', 'volume', 'fullscreen'],
+  stretching: 'responsive'
 });
-
 
 //--------------HIGHLIGHTING TEXT--------------
 // const captureCaptionText = document.querySelectorAll('span');
@@ -27,3 +18,14 @@ var player = new MediaElementPlayer('player', {
 // video.addEventListener('timeupdate', () => {
 
 // }
+
+// video.addEventListener('timeupdate', ()=> {
+//     for (let i=0; i <text.length; i++){
+//       // if (video.currentTime >= text[i].dataset.start && video.currentTime <= text[i].dataset.end){
+//       if (video.currentTime >= text[i].getAttribute("data-start") && video.currentTime <= text[i].getAttribute("data-end")){
+//       text[i].style.color = 'orange';
+//   } else {
+//     text[i].style.color = 'black';
+//   }
+//  }
+// });
