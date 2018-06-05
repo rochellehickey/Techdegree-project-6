@@ -25,6 +25,17 @@ video {
   margin: 0 auto;
 }
 
+.mejs__controls .mejs__button,
+.mejs__time,
+.mejs__time-rail,
+.mejs__controls:not([style*="display: none"]) {
+  background: #CA919C;
+  font-family: 'Lato', sans-serif;
+}
+
+
+
+
 /* ----------- MEDIA QUERIES ----------- */
 
 @media (min-width: 768px) {
