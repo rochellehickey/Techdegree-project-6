@@ -1,27 +1,24 @@
-$( document ).ready(function() {
 
-//-------------- VIDEO PLAYER CONTROLS --------------
-  $('video').mediaelementplayer({
+  //-------------- VIDEO PLAYER CONTROLS --------------
+  var myPlayer = new MediaElementPlayer('video', {
     alwaysShowControls: false,
     features: ['playpause', 'current', 'progress', 'duration', 'tracks', 'volume', 'fullscreen'],
     stretching: 'responsive'
   });
 
+  var lines = document.getElementsByTagName("span");
+
   //-------------- HIGHLIGHTING TEXT --------------
 
-  var videoTime = document.getElementsByTagName("video").currentTime;
-  var lines = document.querySelectorAll("span");
-
-  console.log(videoTime);
-
-  videoTime.addEventListener('timeupdate', function() {
-      for (var i = 0, l = lines.length; i < l; i++) {
-        if (videoTime >= lines.getAttribute("data-start") &&
-            videoTime <= lines.getAttribute("data-end")) {
-          lines[i].className = "current";
-        } else {
-          lines[i].className = "";
-        }
-      }
+  myPlayer.addEventListener("timeupdate", function() {
+    console.log("Hi");
+      // for (var i = 0, l = lines.length; i < l; i++) {
+      //   if (this >= lines.getAttribute("data-start") &&
+      //       this <= lines.getAttribute("data-end")) {
+      //     lines[i].className = "current";
+      //   } else {
+      //     lines[i].className = "";
+      //   }
+      // }
   });
-});
+
