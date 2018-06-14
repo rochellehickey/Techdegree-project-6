@@ -105,20 +105,10 @@ $slider-bg-color: lighten($primary-background-color, 33%);*/
 
 /* ----------- MEDIA QUERIES ----------- */
 
-@media (min-width: 550px) {
-  .video-js {
-    height: 425px;
-  }
-
-}
-
 @media (min-width: 768px) {
   .video-container,
   .text-container {
     width: 90%;
-  }
-  .video-js {
-    height: 510px;
   }
 
 }
@@ -127,9 +117,6 @@ $slider-bg-color: lighten($primary-background-color, 33%);*/
   .video-container,
   .text-container {
     width: 75%;
-  }
-  .video-js {
-    max-height: 600px;
   }
 
 }
