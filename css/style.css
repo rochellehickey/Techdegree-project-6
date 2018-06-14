@@ -10,14 +10,85 @@ p {
 
 .video-container {
   width: 100%;
+  height: 100%;
   display: block;
   margin: 0 auto;
   text-align: center;
-  object-fit: contain;
+}
+
+.video-js {
+  background: #F1A18C;
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+  height: 300px;
+  /* The base font size controls the size of everything, not just text.
+     All dimensions use em-based sizes so that the scale along with the font size.
+     Try increasing it to 15px and see what happens. */
+  font-size: 13px;
+
+  /* The main font color changes the ICON COLORS as well as the text */
+  color: #FFF;
+}
+
+/* The "Big Play Button" is the play button that shows before the video plays.
+   To center it set the align values to center and middle. The typical location
+   of the button is the center, but there is trend towards moving it to a corner
+   where it gets out of the way of valuable content in the poster image.*/
+.video-js .vjs-big-play-button {
+  /* The font size is what makes the big play button...big.
+     All width/height values use ems, which are a multiple of the font size.
+     If the .video-js font-size is 10px, then 3em equals 30px.*/
+  font-size: 3em;
+  left: 50%;
+  top: 50%;
+  margin-left: -1.5em;
+  margin-top: -.75em;
+  /* 0.06666em = 2px default */
+  border: 0.06666em solid #FFF;
+  /* 0.3em = 9px default */
+  border-radius: 0.3em;
+}
+
+/* The default color of control backgrounds is mostly black but with a little
+   bit of blue so it can still be seen on all-black video frames, which are common. */
+.video-js .vjs-control-bar,
+.video-js .vjs-big-play-button,
+.video-js .vjs-menu-button .vjs-menu-content {
+  background-color: #F1A18C;
+}
+
+/* Make a slightly lighter version of the main background
+ for the slider background.
+$slider-bg-color: lighten($primary-background-color, 33%);*/
+
+/* Slider - used for Volume bar and Progress bar */
+.video-js .vjs-slider {
+  background-color: #BFBFBF;
+}
+
+/* The slider bar color is used for the progress bar and the volume bar
+   (the first two can be removed after a fix that's coming) */
+.video-js .vjs-volume-level,
+.video-js .vjs-play-progress,
+.video-js .vjs-slider-bar {
+  background: #0F6586;
+}
+
+/* The main progress bar also has a bar that shows how much has been loaded. */
+.video-js .vjs-load-progress {
+  background: #5CC4EC;
+}
+
+/* The load progress bar also has internal divs that represent
+   smaller disconnected loaded time ranges */
+.video-js .vjs-load-progress div {
+  background: #5CC4EC;
+}
 }
 
 .wrapper {
   width: 100%;
+  height: 100%;
 }
 
 .text-container {
@@ -25,16 +96,8 @@ p {
   margin: 0 auto;
 }
 
-.mejs__controls .mejs__button,
-.mejs__time,
-.mejs__time-rail,
-.mejs__controls:not([style*="display: none"]) {
-  background: #CA919C;
-  font-family: 'Lato', sans-serif;
-}
-
 .current {
-  background: #CA919C;
+  background: #F1A18C;
 }
 
 
@@ -42,10 +105,20 @@ p {
 
 /* ----------- MEDIA QUERIES ----------- */
 
+@media (min-width: 550px) {
+  .video-js {
+    height: 425px;
+  }
+
+}
+
 @media (min-width: 768px) {
   .video-container,
   .text-container {
     width: 90%;
+  }
+  .video-js {
+    height: 510px;
   }
 
 }
@@ -54,6 +127,9 @@ p {
   .video-container,
   .text-container {
     width: 75%;
+  }
+  .video-js {
+    max-height: 600px;
   }
 
 }
