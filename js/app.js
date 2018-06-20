@@ -9,11 +9,14 @@ myPlayer.on('timeupdate', function() {
       const pDataStart = parseFloat(lines[i].getAttribute("data-start"));
       const pDataEnd = parseFloat(lines[i].getAttribute("data-end"));
 
+      // //See if .currentTime() is working
       console.log(whereYouAt);
       // //See whether the .getAttribute is a number or a string
       // console.log(typeof parseFloat(lines[i].getAttribute("data-start")));
 
-      if (myPlayer >= pDataStart && myPlayer <= pDataEnd) {
+      if (whereYouAt === 0) {
+        lines[i].className = "";
+      } else if (whereYouAt >= pDataStart) {
         lines[i].className = "current";
       } else {
         lines[i].className = "";
