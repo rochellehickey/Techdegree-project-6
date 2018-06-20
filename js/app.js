@@ -10,6 +10,7 @@ myPlayer.on('timeupdate', function() {
       const pDataEnd = parseFloat(lines[i].getAttribute("data-end"));
 
       console.log(whereYouAt);
+      // //See whether the .getAttribute is a number or a string
       // console.log(typeof parseFloat(lines[i].getAttribute("data-start")));
 
       if (myPlayer >= pDataStart && myPlayer <= pDataEnd) {
