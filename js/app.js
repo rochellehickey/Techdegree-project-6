@@ -1,5 +1,6 @@
 const myPlayer = videojs("my-player");
 const lines = document.querySelectorAll(".transcript");
+let i = 0;
 
 //-------------- HIGHLIGHTING TEXT --------------
 
@@ -26,14 +27,16 @@ document.addEventListener('click', function(event) {
   console.log(event.target);
 
   // IF clicked element is span with class transcript
-  if (lines === true) {
+  if (event.target.className === ('transcript')) {
 
     // Get data-start of span selected
     // Turn data-start string into a number
     let pDataStart = parseFloat(lines[i].getAttribute("data-start").split(":")[2]);
 
     // Make current time of video data-start number
-    this.currentTime() = pDataStart.value;
+    let timeUpdate = myPlayer.currentTime();
+    timeUpdate = pDataStart;
+    myPlayer.play();
   }
 
 }, false);
