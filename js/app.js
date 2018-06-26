@@ -31,11 +31,10 @@ document.addEventListener('click', function(event) {
 
     // Get data-start of span selected
     // Turn data-start string into a number
-    let pDataStart = parseFloat(lines[i].getAttribute("data-start").split(":")[2]);
+    let pDataStart = parseFloat(event.target.getAttribute("data-start").split(":")[2]);
 
     // Make current time of video data-start number
-    let timeUpdate = myPlayer.currentTime();
-    timeUpdate = pDataStart;
+    let timeUpdate = myPlayer.currentTime(pDataStart);
     myPlayer.play();
   }
 
