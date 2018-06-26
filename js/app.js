@@ -1,14 +1,14 @@
 const myPlayer = videojs("my-player");
 const lines = document.querySelectorAll(".transcript");
-let i = 0;
+var i = 0;
 
 //-------------- HIGHLIGHTING TEXT --------------
 
 myPlayer.on('timeupdate', function() {
-  for (let i = 0, l = lines.length; i < l; i++) {
+  for (var i = 0, l = lines.length; i < l; i++) {
     const whereYouAt = this.currentTime();
-    let pDataStart = parseFloat(lines[i].getAttribute("data-start").split(":")[2]);
-    let pDataEnd = parseFloat(lines[i].getAttribute("data-end").split(":")[2]);
+    var pDataStart = parseFloat(lines[i].getAttribute("data-start").split(":")[2]);
+    var pDataEnd = parseFloat(lines[i].getAttribute("data-end").split(":")[2]);
 
     if (whereYouAt > pDataStart && whereYouAt < pDataEnd) {
       lines[i].classList.add("current");
@@ -31,10 +31,10 @@ document.addEventListener('click', function(event) {
 
     // Get data-start of span selected
     // Turn data-start string into a number
-    let pDataStart = parseFloat(event.target.getAttribute("data-start").split(":")[2]);
+    var pDataStart = parseFloat(event.target.getAttribute("data-start").split(":")[2]);
 
     // Make current time of video data-start number
-    let timeUpdate = myPlayer.currentTime(pDataStart);
+    var timeUpdate = myPlayer.currentTime(pDataStart);
     myPlayer.play();
   }
 
