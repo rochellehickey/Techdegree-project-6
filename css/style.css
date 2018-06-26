@@ -97,7 +97,7 @@ $slider-bg-color: lighten($primary-background-color, 33%);*/
 }
 
 .current {
-  background: #F1A18C;
+  color: #F1A18C;
 }
 
 
